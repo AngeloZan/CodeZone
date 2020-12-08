@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{% url 'forum:new_post' %}" method="post">
+        {% csrf_token %}
+
+        {% for field in new_post_form %}
+            <p>
+                {{ field.label }} <br>
+                {{ field }}
+                {% for error in field.errors %}
+                    <p style="color:red;">{{ error }}</p>
+                {% endfor %}
+            </p>
+        {% endfor %}
+        <button type="submit">Publicar</button>
+    </form>
+{% endblock content %}

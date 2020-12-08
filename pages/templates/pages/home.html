@@ -1,11 +1,5 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-    {% if request.user.is_authenticated %}
-        <p>Hello, {{ request.user.username }} | <a href="{% url 'logout' %}">Logout</a></p>
-    {% else %}
-        <p><a href="{% url 'register' %}">Registrar-se</a> | <a href="{% url 'login' %}">Login</a></p>
-    {% endif %}
-
+    <p><a href="{% url 'forum:new_post' %}">Novo Post</a></p>
 {% endblock content %}
